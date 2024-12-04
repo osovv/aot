@@ -1,4 +1,10 @@
-export const survivalRatio = (input) => {
+type Year = number;
+
+type Quarter = "Q1" | "Q2" | "Q3" | "Q4";
+
+type YearString = `${Year} ${Quarter}`;
+
+export const survivalRatio = (input: Year | YearString) => {
   const quarter = typeof input === "string" ? input : `${input} Q1`;
   const data = quarterlyData[quarter];
   if (!data) {
